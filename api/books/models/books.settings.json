@@ -1,0 +1,100 @@
+{
+  "kind": "collectionType",
+  "collectionName": "books",
+  "info": {
+    "name": "books",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "bookname": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "coverimg": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "imgs": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "condition": {
+      "type": "enumeration",
+      "enum": [
+        "New",
+        "Good",
+        "Fair",
+        "Poor"
+      ],
+      "required": false
+    },
+    "price": {
+      "type": "float",
+      "min": 0,
+      "required": true
+    },
+    "category": {
+      "model": "category",
+      "via": "books"
+    },
+    "users_permissions_user": {
+      "via": "books",
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "available",
+        "trading",
+        "sale"
+      ],
+      "default": "available"
+    },
+    "order": {
+      "via": "books",
+      "model": "order"
+    },
+    "isDeleted": {
+      "type": "boolean",
+      "default": false
+    },
+    "cover": {
+      "type": "string"
+    },
+    "isbn": {
+      "type": "string",
+      "required": true
+    },
+    "conversations": {
+      "via": "book",
+      "collection": "conversation"
+    },
+    "comments": {
+      "via": "book",
+      "collection": "comment"
+    },
+    "publication_date": {
+      "type": "string"
+    },
+    "publisher": {
+      "type": "string"
+    }
+  }
+}

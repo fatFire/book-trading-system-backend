@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "messages",
+  "info": {
+    "name": "Message",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "message": {
+      "type": "text"
+    },
+    "fromto": {
+      "plugin": "users-permissions",
+      "collection": "user"
+    },
+    "conversation": {
+      "via": "messages",
+      "model": "conversation"
+    }
+  }
+}

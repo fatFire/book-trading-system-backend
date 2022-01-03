@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "name": "Order",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "address": {
+      "type": "text",
+      "required": true
+    },
+    "cardnumber": {
+      "type": "string",
+      "required": true
+    },
+    "cardname": {
+      "type": "string",
+      "required": true
+    },
+    "cvv": {
+      "type": "string",
+      "required": true
+    },
+    "totalamount": {
+      "type": "decimal"
+    },
+    "books": {
+      "via": "order",
+      "collection": "books"
+    },
+    "users_permissions_user": {
+      "via": "orders",
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "isDeleted": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

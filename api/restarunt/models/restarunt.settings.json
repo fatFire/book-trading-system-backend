@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "restarunts",
+  "info": {
+    "name": "restarunt"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "cover": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload"
+    }
+  }
+  
+}

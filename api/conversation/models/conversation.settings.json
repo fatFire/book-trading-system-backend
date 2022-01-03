@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "conversations",
+  "info": {
+    "name": "conversation",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "book": {
+      "via": "conversations",
+      "model": "books"
+    },
+    "messages": {
+      "via": "conversation",
+      "collection": "message"
+    },
+    "users": {
+      "plugin": "users-permissions",
+      "collection": "user",
+      "via": "conversations",
+      "dominant": true
+    }
+  }
+}
